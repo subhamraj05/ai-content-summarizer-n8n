@@ -65,15 +65,15 @@ Update Google Sheets
 
 ### Workflow Design
 
-<img src="screenshots/workflow.png" alt="Workflow" width="100%">
+<img src="Screenshots/workflow.png" alt="Workflow" width="100%">
 
 ### Input Data
 
-<img src="screenshots/google-sheet-input.png" alt="Input Sheet" width="100%">
+<img src="Screenshots/google-sheet-input.png" alt="Input Sheet" width="100%">
 
 ### Generated Summaries
 
-<img src="screenshots/google-sheet-output.png" alt="Output Sheet" width="100%">
+<img src="Screenshots/google-sheet-output.png" alt="Output Sheet" width="100%">
 
 ---
 
