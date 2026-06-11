@@ -1,0 +1,296 @@
+{
+  "name": "AI Content Summarizer",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -128,
+        -160
+      ],
+      "id": "3e048dab-47b6-4ea4-bb0f-0e83cac88045",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "31ec1db1-f1d1-4393-8789-57f40bf47d1c",
+              "name": "summary",
+              "value": "={{$json.candidates[0].content.parts[0].text}}",
+              "type": "string"
+            },
+            {
+              "id": "412b3e1c-7c0a-4283-aa7b-3ec32bb2c074",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        544,
+        96
+      ],
+      "id": "99bea20b-3d56-48ee-844b-1864ecf0e0fd",
+      "name": "Extract Summary"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Mg0G5Il7b6it4AXr25CCXpF8vKSyT0VyIam6H3vrZg4",
+          "mode": "list",
+          "cachedResultName": "AI-Summarizer",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Mg0G5Il7b6it4AXr25CCXpF8vKSyT0VyIam6H3vrZg4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Mg0G5Il7b6it4AXr25CCXpF8vKSyT0VyIam6H3vrZg4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{$node[\"Fetch Content\"].json[\"row_number\"]}}",
+            "summary": "={{$json.summary}}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "content",
+              "displayName": "content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "candidates",
+              "displayName": "candidates",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "usageMetadata",
+              "displayName": "usageMetadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "modelVersion",
+              "displayName": "modelVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "responseId",
+              "displayName": "responseId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        800,
+        -144
+      ],
+      "id": "1cb5bf3e-4b3e-499d-b2f2-77b23f2752d4",
+      "name": "Update Summary",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "kS5q64oXTLGA1w2V",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Mg0G5Il7b6it4AXr25CCXpF8vKSyT0VyIam6H3vrZg4",
+          "mode": "list",
+          "cachedResultName": "AI-Summarizer",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Mg0G5Il7b6it4AXr25CCXpF8vKSyT0VyIam6H3vrZg4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Mg0G5Il7b6it4AXr25CCXpF8vKSyT0VyIam6H3vrZg4/edit#gid=0"
+        },
+        "options": {
+          "returnFirstMatch": false
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        96,
+        64
+      ],
+      "id": "227d8257-bbf8-4be7-bd91-488fb9a58481",
+      "name": "Fetch Content",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "kS5q64oXTLGA1w2V",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "YOUR_GEMINI_API_KEY"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"Summarize the following text in 2-3 sentences:\\n\\n{{$json.content}}\"\n        }\n      ]\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        336,
+        -176
+      ],
+      "id": "25e04ffd-e714-4fda-90d1-c4de976a1357",
+      "name": "Gemini Summarizer"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Fetch Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Summary": {
+      "main": [
+        [
+          {
+            "node": "Update Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Content": {
+      "main": [
+        [
+          {
+            "node": "Gemini Summarizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Summarizer": {
+      "main": [
+        [
+          {
+            "node": "Extract Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "9f8a6e41-fea8-462c-af8e-cff62fc3bca7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ae5ec5efc4f095644c493cc5888dce9ae1a072e8f6f693986eee719a695d0d5c"
+  },
+  "id": "Oa91gLtc4YSuPLaD",
+  "tags": []
+}
