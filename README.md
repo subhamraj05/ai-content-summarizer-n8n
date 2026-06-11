@@ -69,11 +69,11 @@ Update Google Sheets
 
 ### Input Data
 
-<img src="Screenshots/google-sheet-input.png" alt="Input Sheet" width="100%">
+<img src="Screenshots/before-execution.png" alt="Input Sheet" width="100%">
 
 ### Generated Summaries
 
-<img src="Screenshots/google-sheet-output.png" alt="Output Sheet" width="100%">
+<img src="Screenshots/after-execution.png" alt="Output Sheet" width="100%">
 
 ---
 
