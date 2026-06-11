@@ -1,2 +1,2 @@
 # ai-content-summarizer-n8n
-AI-powered content summarization workflow built using n8n, Google Sheets, and Gemini API.
+AI-powered workflow automation project that automatically summarizes spreadsheet content using Google Gemini API, Google Sheets, and n8n.
